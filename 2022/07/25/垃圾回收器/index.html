@@ -20,25 +20,49 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="阿西吧">
-<meta property="og:type" content="website">
+    <meta name="description" content="1.GC 分类与性能指标   垃圾收集器没有在规范中进行过多的规定，可以由不同的厂商、不同版本的 JVM 来实现。   由于 JDK 的版本处于高速迭代过程中，因此 Java 发展至今已经衍生了众多的 GC 版本。   从不同角度分析垃圾收集器，可以将 GC 分为不同的类型。 Java 不同版本新特性  语法层面：Lambda 表达式、switch、自动拆箱装箱、enum API 层面：Strea">
+<meta property="og:type" content="article">
 <meta property="og:title" content="MOITY个人">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/07/25/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/index.html">
 <meta property="og:site_name" content="MOITY个人">
-<meta property="og:description" content="阿西吧">
+<meta property="og:description" content="1.GC 分类与性能指标   垃圾收集器没有在规范中进行过多的规定，可以由不同的厂商、不同版本的 JVM 来实现。   由于 JDK 的版本处于高速迭代过程中，因此 Java 发展至今已经衍生了众多的 GC 版本。   从不同角度分析垃圾收集器，可以将 GC 分为不同的类型。 Java 不同版本新特性  语法层面：Lambda 表达式、switch、自动拆箱装箱、enum API 层面：Strea">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718151310.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718153041.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718153047.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718154118.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718154141.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718160558.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718214825.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718221136.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719101136.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719101216.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719105418.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719105436.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719145208.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719145302.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719145333.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719151759.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719154049.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719154419.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719163120.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220719163143.png">
+<meta property="og:image" content="http://moity-bucket.moity-soeoe.xyz/img/ef465d703c93e5b923776ca6469efe63.gif">
+<meta property="article:published_time" content="2022-07-25T13:03:07.477Z">
+<meta property="article:modified_time" content="2022-07-25T13:03:07.477Z">
 <meta property="article:author" content="MOITY">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://moity-bucket.moity-soeoe.xyz/img/20220718151310.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/07/25/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/25/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/","path":"2022/07/25/垃圾回收器/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>MOITY个人</title>
+<title> | MOITY个人</title>
   
 
 
@@ -65,7 +89,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">MOITY个人</h1>
+      <p class="site-title">MOITY个人</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -93,7 +117,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -106,6 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-GC-%E5%88%86%E7%B1%BB%E4%B8%8E%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">1.GC 分类与性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 垃圾收集器分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E6%8C%89%E7%BA%BF%E7%A8%8B%E6%95%B0%E5%88%92%E5%88%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 按线程数划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%8C%89%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E5%88%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 按工作模式分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E6%8C%89%E7%A2%8E%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%E5%88%86"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 按碎片处理方式分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%8C%89%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%86%85%E5%AD%98%E5%8C%BA%E9%97%B4%E5%88%86"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4 按工作的内存区间分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%AF%84%E4%BC%B0-GC-%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 评估 GC 的性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E8%AF%84%E4%BC%B0-GC-%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%EF%BC%9A%E5%90%9E%E5%90%90%E9%87%8F%EF%BC%88Throughput%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 评估 GC 的性能指标：吞吐量（Throughput）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E8%AF%84%E4%BC%B0-GC-%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%EF%BC%9A%E6%9A%82%E5%81%9C%E6%97%B6%E9%97%B4%EF%BC%88pause-time%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 评估 GC 的性能指标：暂停时间（pause time）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E5%90%9E%E5%90%90%E9%87%8F-vs-%E6%9A%82%E5%81%9C%E6%97%B6%E9%97%B4"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 吞吐量 vs 暂停时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">2.不同的垃圾回收器概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-7-%E6%AC%BE%E7%BB%8F%E5%85%B8%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 7 款经典的垃圾收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-7-%E6%AC%BE%E7%BB%8F%E5%85%B8%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%88%86%E4%BB%A3%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 7 款经典收集器与垃圾分代之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E7%BB%84%E5%90%88%E5%85%B3%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 垃圾收集器的组合关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E9%BB%98%E8%AE%A4%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 如何查看默认垃圾收集器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Serial-%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A%E4%B8%B2%E8%A1%8C%E5%9B%9E%E6%94%B6"><span class="nav-number">3.</span> <span class="nav-text">3.Serial 回收器：串行回收</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-ParNew-%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A%E5%B9%B6%E8%A1%8C%E5%9B%9E%E6%94%B6"><span class="nav-number">4.</span> <span class="nav-text">4.ParNew 回收器：并行回收</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Parallel-%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A%E5%90%9E%E5%90%90%E9%87%8F%E4%BC%98%E5%85%88"><span class="nav-number">5.</span> <span class="nav-text">5.Parallel 回收器：吞吐量优先</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-CMS-%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A%E4%BD%8E%E5%BB%B6%E8%BF%9F"><span class="nav-number">6.</span> <span class="nav-text">6.CMS 回收器：低延迟</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-CMS%E7%AE%80%E4%BB%8B"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 CMS简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-CMS%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 CMS运行原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">6.3.</span> <span class="nav-text">6.3优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4CMS-%E6%94%B6%E9%9B%86%E5%99%A8%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">6.4.</span> <span class="nav-text">6.4CMS 收集器可以设置的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-CMS%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 CMS的四个阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-1-%E5%88%9D%E5%A7%8B%E6%A0%87%E8%AE%B0%EF%BC%88initial-mark%EF%BC%89"><span class="nav-number">6.5.1.</span> <span class="nav-text">6.5.1 初始标记（initial mark）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-2-%E5%B9%B6%E5%8F%91%E6%A0%87%E8%AE%B0%EF%BC%88Concurrent-Mark%EF%BC%89"><span class="nav-number">6.5.2.</span> <span class="nav-text">6.5.2 并发标记（Concurrent Mark）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-3-%E9%87%8D%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88Remark%EF%BC%89"><span class="nav-number">6.5.3.</span> <span class="nav-text">6.5.3 重新标记（Remark）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-4-%E5%B9%B6%E5%8F%91%E5%9B%9E%E6%94%B6%EF%BC%88Concurrent-Sweep%EF%BC%89"><span class="nav-number">6.5.4.</span> <span class="nav-text">6.5.4 并发回收（Concurrent Sweep）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.6.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-G1-%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A%E5%8C%BA%E5%9F%9F%E5%8C%96%E5%88%86%E4%BB%A3%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">7.G1 回收器：区域化分代式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">7.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">7.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="nav-number">7.3.</span> <span class="nav-text">参数设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-number">7.4.</span> <span class="nav-text">G1 收集器的常见操作步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">7.5.</span> <span class="nav-text">G1 收集器的适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%8C%BA-Region%EF%BC%9A%E5%8C%96%E6%95%B4%E4%B8%BA%E9%9B%B6"><span class="nav-number">7.6.</span> <span class="nav-text">分区 Region：化整为零</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E7%9A%84%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B"><span class="nav-number">7.7.</span> <span class="nav-text">G1 垃圾回收器的回收过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remembered-Set%EF%BC%88%E8%AE%B0%E5%BF%86%E9%9B%86%EF%BC%89"><span class="nav-number">7.8.</span> <span class="nav-text">Remembered Set（记忆集）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%B9%B4%E8%BD%BB%E4%BB%A3-GC"><span class="nav-number">7.9.</span> <span class="nav-text">G1 回收过程一：年轻代 GC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%B9%B6%E5%8F%91%E6%A0%87%E8%AE%B0%E8%BF%87%E7%A8%8B%EF%BC%88%E4%B8%BB%E8%A6%81%E9%92%88%E5%AF%B9%E8%80%81%E5%B9%B4%E4%BB%A3%EF%BC%89"><span class="nav-number">7.10.</span> <span class="nav-text">G1 回收过程二：并发标记过程（主要针对老年代）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%E4%B8%89%EF%BC%9A%E6%B7%B7%E5%90%88%E5%9B%9E%E6%94%B6"><span class="nav-number">7.11.</span> <span class="nav-text">G1 回收过程三：混合回收</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9B%9E%E6%94%B6%E5%8F%AF%E9%80%89%E7%9A%84%E8%BF%87%E7%A8%8B%E5%9B%9B%EF%BC%9AFull-GC"><span class="nav-number">7.12.</span> <span class="nav-text">G1 回收可选的过程四：Full GC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-%E5%9B%9E%E6%94%B6%E7%9A%84%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">7.13.</span> <span class="nav-text">G1 回收的优化建议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">8.垃圾回收器总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9F"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 怎么选择垃圾回收器？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E5%92%8C%E8%AF%BB%E5%86%99%E5%B1%8F%E9%9A%9C"><span class="nav-number">9.</span> <span class="nav-text">9. 三色标记和读写屏障</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E7%AE%97%E6%B3%95"><span class="nav-number">9.1.</span> <span class="nav-text">9.1三色标记算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 三色标记过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-3-%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B8%A2%E5%A4%B1"><span class="nav-number">10.</span> <span class="nav-text">9.3 三色标记算法的对象丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">10.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SATB-%E5%8E%9F%E5%A7%8B%E5%BF%AB%E7%85%A7%EF%BC%88Snapshot-At-The-Beginning%EF%BC%89"><span class="nav-number">11.</span> <span class="nav-text">SATB 原始快照（Snapshot-At-The-Beginning）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,92 +172,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MOITY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MOITY个人">
-      <meta itemprop="description" content="阿西吧">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-25 21:03:07" itemprop="dateCreated datePublished" datetime="2022-07-25T21:03:07+08:00">2022-07-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-01矩阵"><a href="#1-01矩阵" class="headerlink" title="1. 01矩阵"></a>1. 01矩阵</h1><p><img src="http://moity-bucket.moity-soeoe.xyz/img/20220721152026.png"></p>
-<p><strong>广度优先算法：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span>[][] dirs = &#123;&#123;-<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, -<span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[][] updateMatrix(<span class="type">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> matrix.length, n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="type">int</span>[][] dist = <span class="keyword">new</span> <span class="title class_">int</span>[m][n];</span><br><span class="line">        <span class="type">boolean</span>[][] seen = <span class="keyword">new</span> <span class="title class_">boolean</span>[m][n];</span><br><span class="line">        Queue&lt;<span class="type">int</span>[]&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;<span class="type">int</span>[]&gt;();</span><br><span class="line">        <span class="comment">// 将所有的 0 添加进初始队列中</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i, j&#125;);</span><br><span class="line">                    seen[i][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 广度优先搜索</span></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="type">int</span>[] cell = queue.poll();</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> cell[<span class="number">0</span>], j = cell[<span class="number">1</span>];</span><br><span class="line">            <span class="comment">//该点的上下左右格子都遍历一遍</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">0</span>; d &lt; <span class="number">4</span>; ++d) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">ni</span> <span class="operator">=</span> i + dirs[d][<span class="number">0</span>];</span><br><span class="line">                <span class="type">int</span> <span class="variable">nj</span> <span class="operator">=</span> j + dirs[d][<span class="number">1</span>];</span><br><span class="line">                <span class="comment">//如果在范围内且，没有访问过，因为0都被标志过了，所以不会被遍历到</span></span><br><span class="line">                <span class="keyword">if</span> (ni &gt;= <span class="number">0</span> &amp;&amp; ni &lt; m &amp;&amp; nj &gt;= <span class="number">0</span> &amp;&amp; nj &lt; n &amp;&amp; !seen[ni][nj]) &#123;</span><br><span class="line">                    dist[ni][nj] = dist[i][j] + <span class="number">1</span>;</span><br><span class="line">                    queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;ni, nj&#125;);</span><br><span class="line">                    seen[ni][nj] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dist;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<h1 id="2-腐烂的橘子"><a href="#2-腐烂的橘子" class="headerlink" title="2. 腐烂的橘子"></a>2. 腐烂的橘子</h1><p><img src="http://moity-bucket.moity-soeoe.xyz/img/20220721155659.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] dr = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">int</span>[] dc = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">orangesRotting</span><span class="params">(<span class="type">int</span>[][] grid)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> grid.length, C = grid[<span class="number">0</span>].length;</span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">ArrayDeque</span>&lt;Integer&gt;();</span><br><span class="line">        Map&lt;Integer, Integer&gt; depth = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>; r &lt; R; ++r) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">0</span>; c &lt; C; ++c) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[r][c] == <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">code</span> <span class="operator">=</span> r * C + c;</span><br><span class="line">                    queue.add(code);</span><br><span class="line">                    depth.put(code, <span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">code</span> <span class="operator">=</span> queue.remove();</span><br><span class="line">            <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> code / C, c = code % C;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>; k &lt; <span class="number">4</span>; ++k) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">nr</span> <span class="operator">=</span> r + dr[k];</span><br><span class="line">                <span class="type">int</span> <span class="variable">nc</span> <span class="operator">=</span> c + dc[k];</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">0</span> &lt;= nr &amp;&amp; nr &lt; R &amp;&amp; <span class="number">0</span> &lt;= nc &amp;&amp; nc &lt; C &amp;&amp; grid[nr][nc] == <span class="number">1</span>) &#123;</span><br><span class="line">                    grid[nr][nc] = <span class="number">2</span>;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">ncode</span> <span class="operator">=</span> nr * C + nc;</span><br><span class="line">                    queue.add(ncode);</span><br><span class="line">                    depth.put(ncode, depth.get(code) + <span class="number">1</span>);</span><br><span class="line">                    ans = depth.get(ncode);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>[] row: grid) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> v: row) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,13 +196,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
+      <meta itemprop="name" content=" | MOITY个人">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -275,7 +225,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-GC-分类与性能指标"><a href="#1-GC-分类与性能指标" class="headerlink" title="1.GC 分类与性能指标"></a>1.GC 分类与性能指标</h1><ul>
+        <h1 id="1-GC-分类与性能指标"><a href="#1-GC-分类与性能指标" class="headerlink" title="1.GC 分类与性能指标"></a>1.GC 分类与性能指标</h1><ul>
 <li>  垃圾收集器没有在规范中进行过多的规定，可以由不同的厂商、不同版本的 JVM 来实现。</li>
 <li>  由于 JDK 的版本处于高速迭代过程中，因此 Java 发展至今已经衍生了众多的 GC 版本。</li>
 <li>  从不同角度分析垃圾收集器，可以将 GC 分为不同的类型。<blockquote>
@@ -939,7 +889,6 @@
 </blockquote>
 <p>STAB 相对增量更新效率会很高（当然 STAB 可能造成更多的浮动垃圾），因为不需要重新标记再次深度扫描被删除引用对象，而 CMS 对增量引用的根对象会做深度扫描， G1 因为很多对象都是位于不同的 region ，CMS 是一块老年代区域，重新深度扫描对象的话 G1 的代价会比 CMS 高， 所以 G1 选择 STAB 不深度扫描对象，只是简单标记， 等到下一轮 GC 再深度扫描。</p>
 
-      
     </div>
 
     
@@ -947,323 +896,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/25/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/25/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MOITY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MOITY个人">
-      <meta itemprop="description" content="阿西吧">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-25 21:03:07" itemprop="dateCreated datePublished" datetime="2022-07-25T21:03:07+08:00">2022-07-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-2的幂"><a href="#1-2的幂" class="headerlink" title="1. 2的幂"></a>1. 2的幂</h1><p>给你一个整数 n，请你判断该整数是否是 2 的幂次方。如果是，返回 true ；否则，返回 false 。</p>
-<p>如果存在一个整数 x 使得 n == 2x ，则认为 n 是 2 的幂次方。</p>
-<p>示例 1：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 1</span><br><span class="line">输出：true</span><br><span class="line">解释：20 = 1</span><br></pre></td></tr></table></figure>
-
-<p>示例 2：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 16</span><br><span class="line">输出：true</span><br><span class="line">解释：24 = 16</span><br></pre></td></tr></table></figure>
-
-<p>示例 3：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 3</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p>示例 4：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 4</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p>示例 5：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 5</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPowerOfTwo</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">0</span> &amp;&amp; (n &amp; -n) == n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-位1的个数"><a href="#2-位1的个数" class="headerlink" title="2. 位1的个数"></a>2. 位1的个数</h1><p><img src="http://moity-bucket.moity-soeoe.xyz/img/20220725153400.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hammingWeight</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ret</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((n &amp; (<span class="number">1</span> &lt;&lt; i)) != <span class="number">0</span>) &#123;</span><br><span class="line">                ret++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-只出现一次的数字"><a href="#3-只出现一次的数字" class="headerlink" title="3. 只出现一次的数字"></a>3. 只出现一次的数字</h1><p><img src="http://moity-bucket.moity-soeoe.xyz/img/20220725160509.png"></p>
-<p><img src="http://moity-bucket.moity-soeoe.xyz/img/20220725160533.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">singleNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">single</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            single ^= num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/README/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MOITY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MOITY个人">
-      <meta itemprop="description" content="阿西吧">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/README/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-25 21:03:07" itemprop="dateCreated datePublished" datetime="2022-07-25T21:03:07+08:00">2022-07-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="obsidian"><a href="#obsidian" class="headerlink" title="obsidian"></a>obsidian</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/CompletableFuture%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MOITY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MOITY个人">
-      <meta itemprop="description" content="阿西吧">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/CompletableFuture%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-25 21:03:07" itemprop="dateCreated datePublished" datetime="2022-07-25T21:03:07+08:00">2022-07-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="8-CompletableFuture基本介绍"><a href="#8-CompletableFuture基本介绍" class="headerlink" title="8.CompletableFuture基本介绍"></a>8.CompletableFuture基本介绍</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MOITY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MOITY个人">
-      <meta itemprop="description" content="阿西吧">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MOITY个人">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-25 17:10:49" itemprop="dateCreated datePublished" datetime="2022-07-25T17:10:49+08:00">2022-07-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
